@@ -6,6 +6,7 @@
     <title>Tech Share - Rent or Buy Laptops</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Header Navigation -->
@@ -18,7 +19,7 @@
             <a href="#about">About Us</a>
         </nav>
         <div class="nav-actions">
-            <button class="btn-text">Log In</button>
+            <button class="btn-text" id="openLogin">Log In</button>
             <button class="btn-primary-sm">Get Started</button>
         </div>
     </header>
@@ -77,6 +78,35 @@
         <h2>Explore Our Catalog</h2>
         <p>Premium quality hardware at flexible pricing.</p>
     </section>
+<div class="modal-overlay" id="loginModal">
+    <div class="modal-card">
+        <button class="modal-close" id="closeLogin">&times;</button>
+        <h2>Log In</h2>
+        <form class="login-form">
+            <div class="input-group">
+                <label for="email">Email or Username</label>
+                <input type="text" id="email" placeholder="Enter your email or username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn-hero-primary btn-full">Log In</button>
+        </form>
+        <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+</div>
 
+<script>
+    const openLogin = document.getElementById('openLogin');
+    const closeLogin = document.getElementById('closeLogin');
+    const loginModal = document.getElementById('loginModal');
+
+    openLogin.addEventListener('click', () => loginModal.classList.add('active'));
+    closeLogin.addEventListener('click', () => loginModal.classList.remove('active'));
+    loginModal.addEventListener('click', (e) => {
+        if (e.target === loginModal) loginModal.classList.remove('active');
+    });
+</script>
 </body>
 </html>
