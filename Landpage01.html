@@ -80,7 +80,8 @@
         <h2>Explore Our Catalog</h2>
         <p>Premium quality hardware at flexible pricing.</p>
     </section>
-    <!-- Logic for Log-In Button on Landing page (The upper Right corner one) -->
+
+    <!-- Login Modal Overlay -->
     <div class="modal-overlay" id="loginModal">
         <div class="modal-card">
             <button class="modal-close" id="closeLogin">&times;</button>
@@ -99,7 +100,7 @@
             <p class="signup-link">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
         </div>
     </div>
-    <!-- This for SIGN-UP page  -->
+
     <!-- Sign Up Modal Overlay -->
     <div class="modal-overlay" id="signupModal">
         <div class="modal-card">
@@ -124,7 +125,7 @@
                 <span>OR</span>
             </div>
 
-            <form class="login-form">
+            <form class="login-form" id="signupForm">
                 <div class="input-group">
                     <label for="signup-contact">Email or Phone Number</label>
                     <input type="text" id="signup-contact" placeholder="Enter email or phone" required>
@@ -137,6 +138,27 @@
             </form>
 
             <p class="signup-link">Already have an account? <a href="#" id="switchToLogin">Log in</a></p>
+        </div>
+    </div>
+
+    <!-- OTP Modal Overlay -->
+    <div class="modal-overlay" id="otpModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeOtp">&times;</button>
+            <h2>Verify OTP</h2>
+            <p class="modal-subtitle">We sent a 4-digit code to your email or phone number.</p>
+
+            <form class="login-form" id="otpForm">
+                <div class="otp-container">
+                    <input type="text" maxlength="1" class="otp-input" required>
+                    <input type="text" maxlength="1" class="otp-input" required>
+                    <input type="text" maxlength="1" class="otp-input" required>
+                    <input type="text" maxlength="1" class="otp-input" required>
+                </div>
+                <button type="submit" class="btn-hero-primary btn-full">Verify Code</button>
+            </form>
+
+            <p class="signup-link">Didn't receive code? <a href="#" id="resendOtp">Resend</a></p>
         </div>
     </div>
 
@@ -153,20 +175,21 @@
         const switchToSignup = document.getElementById('switchToSignup');
         const switchToLogin = document.getElementById('switchToLogin');
 
-        // Open Login
+        const signupForm = document.getElementById('signupForm');
+        const otpModal = document.getElementById('otpModal');
+        const closeOtp = document.getElementById('closeOtp');
+        const otpForm = document.getElementById('otpForm');
+
+        // Open & Close Login
         openLogin.addEventListener('click', () => loginModal.classList.add('active'));
         startRentingBtn.addEventListener('click', () => loginModal.classList.add('active'));
-
-        // Close Login
         closeLogin.addEventListener('click', () => loginModal.classList.remove('active'));
         loginModal.addEventListener('click', (e) => {
             if (e.target === loginModal) loginModal.classList.remove('active');
         });
 
-        // Open Sign Up
+        // Open & Close Sign Up
         openSignup.addEventListener('click', () => signupModal.classList.add('active'));
-
-        // Close Sign Up
         closeSignup.addEventListener('click', () => signupModal.classList.remove('active'));
         signupModal.addEventListener('click', (e) => {
             if (e.target === signupModal) signupModal.classList.remove('active');
@@ -183,6 +206,34 @@
             e.preventDefault();
             signupModal.classList.remove('active');
             loginModal.classList.add('active');
+        });
+
+        // Submit Sign Up -> Open OTP Modal
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            signupModal.classList.remove('active');
+            otpModal.classList.add('active');
+        });
+
+        // Close OTP Modal
+        closeOtp.addEventListener('click', () => otpModal.classList.remove('active'));
+        otpModal.addEventListener('click', (e) => {
+            if (e.target === otpModal) otpModal.classList.remove('active');
+        });
+
+        // Auto-focus next input for OTP digits
+        const otpInputs = document.querySelectorAll('.otp-input');
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length === 1 && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    otpInputs[index - 1].focus();
+                }
+            });
         });
     </script>
 </body>

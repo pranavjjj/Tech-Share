@@ -543,3 +543,39 @@ body::before {
 .divider span {
     padding: 0 0.8rem;
 }
+/* otp  */
+/* OTP Styling */
+.modal-subtitle {
+    font-size: 0.85rem;
+    color: #5c6655;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.otp-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 0.5rem 0 1rem;
+}
+
+.otp-input {
+    width: 48px;
+    height: 52px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid rgba(30, 38, 28, 0.15);
+    background: rgba(255, 255, 255, 0.6);
+    color: #1e261c;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.otp-input:focus {
+    border-color: #6e8d4f;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(110, 141, 79, 0.15);
+}
