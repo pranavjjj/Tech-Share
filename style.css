@@ -301,3 +301,74 @@ body::before {
     margin-top: 4rem;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
 }
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 1.2rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.2rem;
+        gap: 3rem;
+        min-height: auto;
+        text-align: center;
+    }
+
+    .animated-brand {
+        font-size: 2.8rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.875rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-outline {
+        width: 100%;
+    }
+
+    .hero-right {
+        margin-top: 2rem;
+    }
+
+    .stat-card-1 {
+        top: -35px;
+        left: -10px;
+        width: 150px;
+    }
+
+    .stat-card-2 {
+        top: -30px;
+        right: -10px;
+        width: 140px;
+    }
+
+    .badge-rental {
+        left: -5px;
+        top: 15%;
+    }
+
+    .badge-buy {
+        right: -5px;
+        bottom: 5%;
+    }
+
+    .content-section {
+        padding: 3rem 1.2rem;
+    }
+}
