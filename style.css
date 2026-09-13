@@ -124,6 +124,7 @@ body::before {
         transform: translateY(25px) scale(0.94);
         filter: blur(8px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -206,7 +207,7 @@ body::before {
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 12px;
     padding: 1rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
 }
 
 .stat-card-1 {
@@ -246,10 +247,21 @@ body::before {
     border-radius: 3px;
 }
 
-.chart-bars span:nth-child(1) { height: 40%; }
-.chart-bars span:nth-child(2) { height: 70%; }
-.chart-bars span:nth-child(3) { height: 50%; }
-.chart-bars span:nth-child(4) { height: 90%; }
+.chart-bars span:nth-child(1) {
+    height: 40%;
+}
+
+.chart-bars span:nth-child(2) {
+    height: 70%;
+}
+
+.chart-bars span:nth-child(3) {
+    height: 50%;
+}
+
+.chart-bars span:nth-child(4) {
+    height: 90%;
+}
 
 /* Main Device Image Container */
 .device-showcase {
@@ -280,7 +292,7 @@ body::before {
     gap: 0.4rem;
     font-size: 0.8rem;
     font-weight: 600;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
 }
 
 .badge-rental {
@@ -372,6 +384,7 @@ body::before {
         padding: 3rem 1.2rem;
     }
 }
+
 /* Login Modal */
 .modal-overlay {
     position: fixed;
